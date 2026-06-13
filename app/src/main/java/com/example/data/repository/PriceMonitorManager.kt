@@ -61,7 +61,7 @@ class PriceMonitorManager private constructor(context: Context) {
         appContext,
         AppDatabase::class.java,
         "fintrace_database"
-    ).fallbackToDestructiveMigration().build()
+    ).fallbackToDestructiveMigration(true).build()
 
     private val scope = CoroutineScope(SupervisorJob() + Dispatchers.Default)
     private var connectionJob: Job? = null
